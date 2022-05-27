@@ -1,0 +1,7 @@
+{
+  "name": "github-actions-practice",
+  "version": "1.0.0",
+  "description": "Practice GitHub Actions - setting up workflows and creating triggers",
+  "author": "lyoon-tcs",
+  "license": "UNLISCENSED"
+}
