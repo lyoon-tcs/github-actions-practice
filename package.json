@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "description": "Practice GitHub Actions - setting up workflows and creating triggers",
   "author": "lyoon-tcs",
-  "license": "UNLISCENSED"
+  "license": "UNLISCENSED",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
 }
