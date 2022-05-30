@@ -4,6 +4,10 @@ name: 'Random name'
 on:
   push:
     branches: [main]
+
+jobs:
+  console_log_sum_function:
+    name: Console log
 # jobs:
 #   # console-log is the name right? Try changing this
 #   console-log:
