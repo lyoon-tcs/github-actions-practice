@@ -7,6 +7,8 @@ on:
 
 jobs:
   console_log_sum_function:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Console log
         run: node src/index.js
