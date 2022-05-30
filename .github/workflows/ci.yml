@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Console log
-        run: node src/index.js
+        run: node src/sum.js
 # jobs:
 #   # console-log is the name right? Try changing this
 #   console-log:
