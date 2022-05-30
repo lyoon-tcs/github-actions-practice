@@ -1,0 +1,8 @@
+name: CI-Github-Actions
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  console-log: node src/index.js
