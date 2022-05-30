@@ -5,4 +5,14 @@ on:
     branches: [main]
 
 jobs:
-  console-log: node src/index.js
+  console-log:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12
+
+      - name: Console Log
+        run: node src/sum.js
