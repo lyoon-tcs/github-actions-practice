@@ -7,7 +7,9 @@ on:
 
 jobs:
   console_log_sum_function:
-    name: Console log
+    steps:
+      - name: Console log
+        run: node src/index.js
 # jobs:
 #   # console-log is the name right? Try changing this
 #   console-log:
