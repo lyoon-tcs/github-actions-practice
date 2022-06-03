@@ -3,7 +3,7 @@ name: 'Random name'
 # test different workflow triggers
 on:
   push:
-    branches: [main]
+    branches: [feature/LEARN-jest]
 
 jobs:
   console_log_sum_function:
