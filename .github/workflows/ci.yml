@@ -1,4 +1,3 @@
-# name: CI-Github-Actions
 name: 'Random name'
 # test different workflow triggers
 on:
@@ -7,12 +6,14 @@ on:
 
 jobs:
   test_sum_function:
+    # run job(s) on latest virtual machine hosted by GH
     runs-on: ubuntu-latest
 
     steps:
+      # checks out repo onto runner, allowing scripts usage (build & test)
       - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      # installs specified version of Node.js - allows usage of node & npm commands
+      - uses: actions/setup-node@v3
       - name: Jest Test
         run: npm t
 
@@ -20,9 +21,8 @@ jobs:
     needs: test_sum_function
     runs-on: ubuntu-latest
 
-    steps: 
-      uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: Console log
         run: node src/sum.js
