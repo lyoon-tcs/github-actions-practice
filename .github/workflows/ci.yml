@@ -3,28 +3,26 @@ name: 'Random name'
 # test different workflow triggers
 on:
   push:
-    branches: [feature/LEARN-jest]
+    branches: [feature/**]
 
 jobs:
-  console_log_sum_function:
+  test_sum_function:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
+      - name: Jest Test
+        run: npm t
+
+  console_log_sum_function_again:
+    needs: test_sum_function
+    runs-on: ubuntu-latest
+
+    steps: 
+      uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
       - name: Console log
         run: node src/sum.js
-# jobs:
-#   # console-log is the name right? Try changing this
-#   console-log:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v3
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 12, 14
-
-#       - name: Console Log
-#         run: node src/sum.js
