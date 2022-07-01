@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-node@v3
       - name: Install
         run: npm ci
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Jest Test
         run: npm t
 
