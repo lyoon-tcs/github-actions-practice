@@ -16,6 +16,6 @@ jobs:
         # installs specified version of Node.js - allows usage of node & npm commands
         uses: actions/setup-node@v3
       - name: Install
+        run: npm ci
         env:
           secret: ${{ secrets.GH_TOKEN }}
-        run: npm ci
