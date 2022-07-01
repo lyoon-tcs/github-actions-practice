@@ -19,9 +19,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@lyoon-tcs'
       - name: Install
-        run: npm i
+        run: npm ci
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Jest Test
         run: npm t
 
