@@ -1,5 +1,3 @@
-const sum = (a, b) => {
-  return a + b;
-};
+const autoPackageTestFunction = require('@lyoon-tcs/auto-package-test');
 
-module.exports = sum;
+console.log(autoPackageTestFunction('Lawrence'));

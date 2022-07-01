@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "jest": "^28.1.0"
+  },
+  "dependencies": {
+    "@lyoon-tcs/auto-package-test": "^0.3.0"
   }
 }
