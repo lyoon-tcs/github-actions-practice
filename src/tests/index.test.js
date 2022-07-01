@@ -1,5 +1,7 @@
-const sum = require('../');
+const autoPackageTestFunction = require('@lyoon-tcs/auto-package-test');
 
-describe('Sum function:', () => {
-  test('adding 1 and 3 should output 4', () => expect(sum(1, 3)).toBe(4));
+describe('Auto Package Test function:', () => {
+  test('should output name passed into argument', () => {
+    expect(autoPackageTestFunction('Lawrence')).toMatch(/lawrence/i);
+  });
 });
