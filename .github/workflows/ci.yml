@@ -19,7 +19,7 @@ jobs:
       - name: Jest Test
         run: npm t
 
-  console_log_sum_function_again:
+  console_log_auto_test_package_function:
     needs: test_sum_function
     runs-on: ubuntu-latest
 
