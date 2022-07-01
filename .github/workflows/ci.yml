@@ -10,12 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # checks out repo onto runner, allowing scripts usage (build & test)
-      - uses: actions/checkout@v3
+      # # checks out repo onto runner, allowing scripts usage (build & test)
+      # - uses: actions/checkout@v3
+      # - name: Use Node.js
+      #   # installs specified version of Node.js - allows usage of node & npm commands
+      #   uses: actions/setup-node@v3
+      # - name: Install
+      #   run: npm ci
+      #   env:
+      #     secret: ${{ secrets.GH_TOKEN }}
+
+      - uses: actions/checkout@v2
       - name: Use Node.js
-        # installs specified version of Node.js - allows usage of node & npm commands
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
       - name: Install
         run: npm ci
         env:
-          secret: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
