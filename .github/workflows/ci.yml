@@ -15,22 +15,5 @@ jobs:
       - name: Use Node.js
         # installs specified version of Node.js - allows usage of node & npm commands
         uses: actions/setup-node@v3
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@lyoon-tcs'
       - name: Install
         run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Jest Test
-        run: npm t
-
-  console_log_auto_test_package_function:
-    needs: test_sum_function
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - name: Console log
-        run: node src/index.js
