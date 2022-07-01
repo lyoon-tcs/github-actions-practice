@@ -15,8 +15,10 @@ jobs:
       - name: Use Node.js
         # installs specified version of Node.js - allows usage of node & npm commands
         uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://npm.pkg.github.com'
       - name: Install
-        run: npm ci
+        run: npm i
         env:
           github_token: ${{ secrets.GH_TOKEN }}
       - name: Jest Test
