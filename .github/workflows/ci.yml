@@ -20,7 +20,8 @@ jobs:
       - name: Install
         run: npm i
         env:
-          github_token: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Jest Test
         run: npm t
 
