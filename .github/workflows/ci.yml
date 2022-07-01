@@ -17,5 +17,5 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install
         with:
-          secret: ${{ screts.GH_TOKEN }}
+          secret: ${{ secrets.GH_TOKEN }}
         run: npm ci
