@@ -16,12 +16,12 @@ jobs:
       - name: Use Node.js
         # installs specified version of Node.js - allows usage of node & npm commands
         uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
+        # with:
+        #   cache: 'npm'
       - name: Install
         run: npm ci
         env:
-          secrets: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # # THIS WORKS??? Is it the actions @v2 vs @v3 diff, or the with cache 'npm'?
       # - uses: actions/checkout@v
