@@ -11,23 +11,25 @@ jobs:
 
     steps:
       # THIS DOESN'T WORK
-      # # checks out repo onto runner, allowing scripts usage (build & test)
-      # - uses: actions/checkout@v3
-      # - name: Use Node.js
-      #   # installs specified version of Node.js - allows usage of node & npm commands
-      #   uses: actions/setup-node@v3
-      # - name: Install
-      #   run: npm ci
-      #   env:
-      #     secret: ${{ secrets.GH_TOKEN }}
-
-      # THIS WORKS??? Is it the actions @v2 vs @v3 diff, or the with cache 'npm'?
-      - uses: actions/checkout@v2
+      # checks out repo onto runner, allowing scripts usage (build & test)
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        # installs specified version of Node.js - allows usage of node & npm commands
+        uses: actions/setup-node@v3
         with:
           cache: 'npm'
       - name: Install
         run: npm ci
         env:
-          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+          secret: ${{ secrets.GH_TOKEN }}
+
+      # # THIS WORKS??? Is it the actions @v2 vs @v3 diff, or the with cache 'npm'?
+      # - uses: actions/checkout@v
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     cache: 'npm'
+      # - name: Install
+      #   run: npm ci
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
