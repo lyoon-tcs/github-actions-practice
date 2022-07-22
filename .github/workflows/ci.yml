@@ -20,7 +20,7 @@ jobs:
         # We are downloading a Github Package when we run npm ci, the auto-package-test. So question is: why specifically NPM_TOKEN??
       - name: Install
         run: npm ci
-        # setting secret as environment variable
-        # NPM_TOKEN comes from .npmrc. So what we are doing is creating a secret called GH_TOKEN, storing our PAT there. In .npmrc to authenticate, we set NPM_TOKEN to our PAT stored in GH_TOKEN (so it can't be exposed to public!!)
+        # We need authentication to download auto-test-package from GH registry.
+        # Authentication is done from .npmrc. Will set my-pat to PAT stored as a secret for this repository (so it's not exposed to public)
         env:
-          lyoon-secret: ${{ secrets.GH_TOKEN }}
+          my-pat: ${{ secrets.GH_TOKEN }}
