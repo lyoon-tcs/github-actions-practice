@@ -16,20 +16,10 @@ jobs:
       - name: Use Node.js
         # installs specified version of Node.js - allows usage of node & npm commands
         uses: actions/setup-node@v3
-        # with:
-        #   cache: 'npm'
+        # Okay so if we don't have NPM_TOKEN: ${{ secrets.GH_TOKEN }} (currently using PAT), we get authentication warning.
+        # We are downloading a Github Package when we run npm ci, the auto-package-test. So question is: why specifically NPM_TOKEN
       - name: Install
         run: npm ci
+        # setting secret as an environment variable
         env:
-          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      # # THIS WORKS??? Is it the actions @v2 vs @v3 diff, or the with cache 'npm'?
-      # - uses: actions/checkout@v
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     cache: 'npm'
-      # - name: Install
-      #   run: npm ci
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+          SUPER_SECRET: ${{ secrets.GH_TOKEN }}
