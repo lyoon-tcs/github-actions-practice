@@ -20,6 +20,6 @@ jobs:
         # We are downloading a Github Package when we run npm ci, the auto-package-test. So question is: why specifically NPM_TOKEN
       - name: Install
         run: npm ci
-        # setting secret as an environment variable
+        # setting secret as environment variable
         env:
-          SUPER_SECRET: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_TOKENN }}
