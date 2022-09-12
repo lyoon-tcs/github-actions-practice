@@ -4,23 +4,32 @@ on:
   push:
     branches: [feature/**]
 
-jobs:
-  test_sum_function:
-    # run job(s) on latest virtual machine hosted by GH
-    runs-on: ubuntu-latest
+env:
+  TODAY: Tuesday
 
+jobs:
+  say_today_date:
+    runs-on: ubuntu-latest
     steps:
-      # THIS DOESN'T WORK
-      # checks out repo onto runner, allowing scripts usage (build & test)
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        # installs specified version of Node.js - allows usage of node & npm commands
-        uses: actions/setup-node@v3
-        # Okay so if we don't have NPM_TOKEN: ${{ secrets.GH_TOKEN }} (currently using PAT), we get authentication warning.
-        # We are downloading a Github Package when we run npm ci, the auto-package-test. So question is: why specifically NPM_TOKEN??
-      - name: Install
-        run: npm ci
-        # We need authentication to download auto-test-package from GH registry.
-        # Authentication is done from .npmrc. Will set my-pat to PAT stored as a secret for this repository (so it's not exposed to public)
-        env:
-          my-pat: ${{ secrets.GH_TOKEN }}
+      - name: 'Say todays date!'
+        run: echo "Today, is $TODAY!"
+# jobs:
+#   test_sum_function:
+#     # run job(s) on latest virtual machine hosted by GH
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       # THIS DOESN'T WORK
+#       # checks out repo onto runner, allowing scripts usage (build & test)
+#       - uses: actions/checkout@v3
+#       - name: Use Node.js
+#         # installs specified version of Node.js - allows usage of node & npm commands
+#         uses: actions/setup-node@v3
+#         # Okay so if we don't have NPM_TOKEN: ${{ secrets.GH_TOKEN }} (currently using PAT), we get authentication warning.
+#         # We are downloading a Github Package when we run npm ci, the auto-package-test. So question is: why specifically NPM_TOKEN??
+#       - name: Install
+#         run: npm ci
+#         # We need authentication to download auto-test-package from GH registry.
+#         # Authentication is done from .npmrc. Will set my-pat to PAT stored as a secret for this repository (so it's not exposed to public)
+#         env:
+#           my-pat: ${{ secrets.GH_TOKEN }}
