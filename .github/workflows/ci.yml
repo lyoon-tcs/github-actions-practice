@@ -6,13 +6,14 @@ on:
 
 env:
   TODAY: Tuesday
+  name: Lawrence
 
 jobs:
   say_today_date:
     runs-on: ubuntu-latest
     steps:
       - name: 'Say todays date!'
-        run: echo "Today, is $TODAY!"
+        run: echo ", is Hey $name, today is $TODAY!"
 # jobs:
 #   test_sum_function:
 #     # run job(s) on latest virtual machine hosted by GH
